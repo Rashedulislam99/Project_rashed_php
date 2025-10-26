@@ -8,6 +8,10 @@ class StockController extends Controller{
 	public function create(){
 		view("Inventory");
 	}
+
+	public function lowStock(){
+		view("Inventory");
+	}
 public function save($data,$file){
 	if(isset($data["create"])){
 	$errors=[];
@@ -72,8 +76,10 @@ public function update($data,$file){
 		$stock->date=date("Y-m-d",strtotime($data["date"]));
 		$stock->transaction_type_id=$data["transaction_type_id"];
 		$stock->warehouse_id=$data["warehouse_id"];
-		$stock->created_at=$now;
-		$stock->updated_at=$now;
+			$now = date("Y-m-d H:i:s");
+
+		$stock->created_at = $now;
+		$stock->updated_at = $now;
 
 		$stock->update();
 		redirect();

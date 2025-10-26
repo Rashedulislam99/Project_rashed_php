@@ -36,6 +36,8 @@ public function save($data,$file){
 		$purchase->discount_amount=$data["discount_amount"];
 		$purchase->net_total=$data["net_total"];
 		$purchase->status_id=$data["status_id"];
+		$now = date("Y-m-d H:i:s");
+
 		$purchase->created_at=$now;
 		$purchase->updated_at=$now;
 
@@ -78,6 +80,8 @@ public function update($data,$file){
 		$purchase->discount_amount=$data["discount_amount"];
 		$purchase->net_total=$data["net_total"];
 		$purchase->status_id=$data["status_id"];
+		$now = date("Y-m-d H:i:s");
+
 		$purchase->created_at=$now;
 		$purchase->updated_at=$now;
 
