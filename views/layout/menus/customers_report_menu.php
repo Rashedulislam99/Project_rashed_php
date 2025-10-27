@@ -7,11 +7,11 @@
 
     <ul class="pc-submenu">
         <li class="pc-item"><a class="pc-link" href="<?=$base_url?>/product/add_customers">Add Customer</a></li>
-        <li class="pc-item pc-hasmenu">
+        <!-- <li class="pc-item pc-hasmenu">
             <a href="#!" class="pc-link">All Customers<span class="pc-arrow"></a>
-        </li>
+        </li> -->
         <li class="pc-item pc-hasmenu">
-            <a href="<?=$base_url?>/product/index" class="pc-link">Customers Details</a>
+            <a href="<?=$base_url?>/product/index" class="pc-link"> All Customers </a>
         </li>
     </ul>
 </li>

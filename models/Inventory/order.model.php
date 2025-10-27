@@ -73,6 +73,14 @@ class Order extends Model implements JsonSerializable{
 		list($count)=$result->fetch_row();
 			return $count;
 	}
+
+public static function total_sell(){
+		global $db,$tx;
+		$result =$db->query("select sum(order_total) total_sell from {$tx}orders ");
+		list($count)=$result->fetch_row();
+			return $count;
+	}
+
 	public static function find($id){
 		global $db,$tx;
 		$result =$db->query("select id,customer_id,order_date,delivery_date,shipping_address,order_total,paid_amount,remark,status_id,discount,vat,created_at,updated_at from {$tx}orders where id='$id'");
