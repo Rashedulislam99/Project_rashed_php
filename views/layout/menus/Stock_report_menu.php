@@ -8,7 +8,7 @@
 
      <ul class="pc-submenu">
        <li class="pc-item"><a class="pc-link" href="<?php echo $base_url?>/stock">Current Stock Report</a></li>
-       <li class="pc-item"><a class="pc-link" href="#!">Low Stock Report</a></li>
+       <li class="pc-item"><a class="pc-link" href="<?php echo $base_url?>/stock/lowStock">Low Stock Report</a></li>
        <li class="pc-item"><a class="pc-link" href="#!">Over Stock Report</a></li>
        <li class="pc-item"><a class="pc-link" href="#!">Stock Valuation Report</a></li>
        <li class="pc-item pc-hasmenu"></li>
