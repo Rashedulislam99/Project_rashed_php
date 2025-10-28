@@ -103,7 +103,7 @@ $stocks = Stock::getFilteredStocks($start_date, $end_date);
         <td>$value->product</td>
         <td>$value->quantity</td>
         <td>
-          <a href='$base_url/stock/product_report/$value->product_id' class=\"btn btn-sm btn-outline-primary\"><i class=\"bi bi-pencil\"></i></a>
+          <a href='$base_url/stock/product_report/$value->id' class=\"btn btn-sm btn-outline-primary\"><i class=\"bi bi-pencil\"></i></a>
           <a href='$base_url/stock/show/$value->id' class=\"btn btn-sm btn-outline-danger\"><i class=\"bi bi-eye\"></i></a>
           <a href='$base_url/stock/confirm/$value->id' class=\"btn btn-sm btn-outline-danger\"><i class=\"bi bi-trash\"></i></a>
         </td>

@@ -9,6 +9,7 @@ class ProductController extends Controller{
 		view("Inventory");
 	}
 public function save($data,$file){
+	global $now;
 	if(isset($data["create"])){
 	$errors=[];
 /*

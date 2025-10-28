@@ -1,0 +1,145 @@
+[28-Oct-2025 10:33:46 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.tt.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:105
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(105): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\index.php(7): Stock::getFilteredStocks()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(6): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(84): StockController->index()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 105
+[28-Oct-2025 10:35:18 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 10:35:25 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 10:43:45 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 10:45:30 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:16:44 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:22:41 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:23:02 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:23:43 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:23:51 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:24:38 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:24:43 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:24:56 Asia/Dhaka] PHP Fatal error:  Uncaught mysqli_sql_exception: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'wdpf66_rashedul.s.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php:138
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php(138): mysqli->query()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php(3): Stock::getLowStockProducts()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once('...')
+#3 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#4 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#5 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\models\Inventory\stock.model.php on line 138
+[28-Oct-2025 12:29:29 Asia/Dhaka] PHP Fatal error:  Uncaught Error: Call to undefined method Stock::getLowStockProducts() in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php:3
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#3 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php on line 3
+[28-Oct-2025 12:29:35 Asia/Dhaka] PHP Fatal error:  Uncaught Error: Call to undefined method Stock::getLowStockProducts() in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php:3
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#3 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php on line 3
+[28-Oct-2025 12:29:44 Asia/Dhaka] PHP Fatal error:  Uncaught Error: Call to undefined method Stock::getLowStockProducts() in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php:3
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#3 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php on line 3
+[28-Oct-2025 12:31:36 Asia/Dhaka] PHP Fatal error:  Uncaught Error: Call to undefined method Stock::getLowStockProducts() in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php:3
+Stack trace:
+#0 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(382): include_once()
+#1 D:\webserver\www\student\round66\rashedul\project_rashed\controllers\Inventory\StockController.php(13): view()
+#2 D:\webserver\www\student\round66\rashedul\project_rashed\route.php(75): StockController->lowStock()
+#3 {main}
+  thrown in D:\webserver\www\student\round66\rashedul\project_rashed\views\pages\Inventory\stock\lowStock.php on line 3

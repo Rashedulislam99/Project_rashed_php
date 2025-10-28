@@ -1,17 +1,17 @@
 <?php   
    //Remote
    
-     define("SERVER","localhost");
-     define("USER","root");
-     define("DATABASE","wdpf");
-     define("PASSWORD","");
+    //  define("SERVER","localhost");
+    //  define("USER","rashedul");
+    //  define("DATABASE","wdpf66_rashedul");
+    //  define("PASSWORD","7057@;;");
 
    //Local
    
-    //define("SERVER","localhost");
-    //define("USER","root");//rajib
-    //define("DATABASE","hosting");
-    //define("PASSWORD","");
+    define("SERVER","localhost");
+    define("USER","root");//rajib
+    define("DATABASE","wdpf");
+    define("PASSWORD","");
 
     $db=new mysqli(SERVER,USER,PASSWORD,DATABASE);
     $tx="core_";

@@ -2,8 +2,7 @@
 require_once("configs/db_config.php");
 
 
-$db=new mysqli("localhost","root","","batch66");
-$tx="core_";
+
 //require_once("library/classes/system_log.class.php");
 
 //echo password_hash("admin123",PASSWORD_DEFAULT);

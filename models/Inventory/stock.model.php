@@ -79,63 +79,76 @@ class Stock extends Model implements JsonSerializable
 		return $data;
 	}
 	public static function getFilteredStocks($start_date = null, $end_date = null)
+	{
+		global $db, $tx;
+
+		$sql = "
+SELECT 
+    p.id AS id,
+    p.name AS product,
+    SUM(s.qty) AS quantity,
+    MAX(tt.name) AS transaction_type,
+    MAX(s.remark) AS remark,
+    MAX(s.updated_at) AS updated_at
+FROM {$tx}stocks s
+JOIN {$tx}products p 
+    ON s.product_id = p.id
+JOIN {$tx}transaction_types tt 
+    ON s.transaction_type_id = tt.id
+WHERE 1=1
+";
+
+		if ($start_date && $end_date) {
+			$sql .= " AND DATE(s.updated_at) BETWEEN '{$start_date}' AND '{$end_date}'";
+		}
+
+		$sql .= "
+GROUP BY p.id, p.name
+ORDER BY updated_at DESC
+";
+
+
+		$result = $db->query($sql);
+		$data = [];
+		while ($stock = $result->fetch_object()) {
+			$data[] = $stock;
+		}
+		return $data;
+	}
+
+
+	public static function getLowStockProducts($threshold = 5)
 {
     global $db, $tx;
 
-    $sql = "SELECT s.id,
-                   p.id AS product_id,
-                   p.name AS product,
-                   SUM(s.qty) AS quantity,
-                   tt.name AS transaction_type,
-                   s.remark,
-                   s.updated_at
+    $sql = "SELECT 
+                p.id AS product_id,
+                p.name AS product,
+                SUM(s.qty) AS quantity,
+                MAX(s.updated_at) AS last_updated
             FROM {$tx}stocks s
-            JOIN {$tx}products p ON s.product_id = p.id
-            JOIN {$tx}transaction_types tt ON s.transaction_type_id = tt.id
-            WHERE 1=1";
-
-    if ($start_date && $end_date) {
-        // Make sure to use DATE() to ignore time portion
-        $sql .= " AND DATE(s.updated_at) BETWEEN '{$start_date}' AND '{$end_date}'";
-    }
-
-    $sql .= " GROUP BY s.product_id
-              ORDER BY s.updated_at DESC";
-
-    $result = $db->query($sql);
-    $data = [];
-    while ($stock = $result->fetch_object()) {
-        $data[] = $stock;
-    }
-    return $data;
-}
-
-
-public static function getLowStockProducts($threshold = 5)
-{
-    global $db, $tx;
-
-    $sql = "SELECT s.id,
-                   p.id AS product_id,
-                   p.name AS product,
-                   SUM(s.qty) AS quantity,
-                   tt.name AS transaction_type,
-                   s.remark,
-                   s.updated_at
-            FROM {$tx}stocks s
-            JOIN {$tx}products p ON s.product_id = p.id
-            JOIN {$tx}transaction_types tt ON s.transaction_type_id = tt.id
-            GROUP BY s.product_id
-            HAVING quantity < {$threshold}
+            INNER JOIN {$tx}products p ON s.product_id = p.id
+            GROUP BY p.id, p.name
+            HAVING SUM(s.qty) < {$threshold}
             ORDER BY quantity ASC";
 
     $result = $db->query($sql);
-    $data = [];
-    while ($stock = $result->fetch_object()) {
-        $data[] = $stock;
+
+    if (!$result) {
+        die('Query Error: ' . $db->error);
     }
+
+    $data = [];
+    while ($row = $result->fetch_object()) {
+        $data[] = $row;
+    }
+
     return $data;
 }
+
+
+
+
 
 
 
