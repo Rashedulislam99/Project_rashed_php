@@ -35,7 +35,7 @@ class Customer extends Model implements JsonSerializable{
 		global $db,$tx;
 		$db->query("delete from {$tx}customers where id={$id}");
 	}
-	public function jsonSerialize(){
+	public function jsonSerialize():mixed{
 		return get_object_vars($this);
 	}
 	public static function all(){
@@ -109,12 +109,12 @@ class Customer extends Model implements JsonSerializable{
 		$total_pages = ceil($total_rows /$perpage);
 		$top = ($page - 1)*$perpage;
 		$result=$db->query("select id,name,email,phone,address,created_at,updated_at,password from {$tx}customers $criteria limit $top,$perpage");
-		$html="<table class='table'>";
-			$html.="<tr><th colspan='3'>".Html::link(["class"=>"btn btn-success","route"=>"customer/create","text"=>"New Customer"])."</th></tr>";
+		$html="<table class='table table-striped'>";
+			$html.="<tr ><th colspan='3'>".Html::link(["class"=>"btn btn-success","route"=>"customer/create","text"=>"New Customer"])."</th></tr>";
 		if($action){
-			$html.="<tr><th>Id</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created At</th><th>Updated At</th><th>Password</th><th>Action</th></tr>";
+			$html.="<tr class=\"table-danger\"><th>Id</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created At</th><th>Updated At</th><th>Password</th><th>Action</th></tr>";
 		}else{
-			$html.="<tr><th>Id</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created At</th><th>Updated At</th><th>Password</th></tr>";
+			$html.="<tr class=\"table-danger\"><th>Id</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Created At</th><th>Updated At</th><th>Password</th></tr>";
 		}
 		while($customer=$result->fetch_object()){
 			$action_buttons = "";

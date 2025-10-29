@@ -11,7 +11,7 @@
             <a href="#!" class="pc-link">All Customers<span class="pc-arrow"></a>
         </li> -->
         <li class="pc-item pc-hasmenu">
-            <a href="<?=$base_url?>/product/index" class="pc-link"> All Customers </a>
+            <a href="<?=$base_url?>/customer" class="pc-link"> All Customers </a>
         </li>
     </ul>
 </li>
