@@ -1,5 +1,5 @@
 
-<!-- sealse Report --><!-- sealse Report --><!-- sealse Report --><!-- sealse Report --><!-- sealse Report --><!-- sealse Report -->
+
 
 <li class="pc-item pc-hasmenu">
    <a href="#!" class="pc-link">
@@ -10,9 +10,9 @@
 
 
     <ul class="pc-submenu">
-        <li class="pc-item"><a class="pc-link" href="#!">Daily sales</a></li>
+        <li class="pc-item"><a class="pc-link" href="<?php echo $base_url?>/order/filter">Daily sales</a></li>
         <li class="pc-item pc-hasmenu">
-            <a href="#!" class="pc-link">Monthly sales<span class="pc-arrow"></a>
+            <a href="<?php echo $base_url?>" class="pc-link">Monthly sales<span class="pc-arrow"></a>
         </li>
         <li class="pc-item pc-hasmenu">
             <a href="#!" class="pc-link">Product-wise Sales Report<span class="pc-arrow"></a>
