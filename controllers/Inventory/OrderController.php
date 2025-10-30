@@ -126,5 +126,43 @@ public function update($data,$file){
 	public function show($id){
 		view("Inventory",Order::find($id));
 	}
+
+
+
+
+public function filter(){
+    global $base_url;
+
+    $criteria = "";
+    if(isset($_POST["filter_type"])){
+
+        $filter_type = $_POST["filter_type"];
+
+        if($filter_type == "daily"){
+            $today = date("Y-m-d");
+            // Use DATE() in case order_date is DATETIME
+            $criteria = "WHERE DATE(order_date) = '$today'";
+        }
+        elseif($filter_type == "monthly"){
+            $month = date("m");
+            $year = date("Y");
+            $criteria = "WHERE MONTH(order_date) = '$month' AND YEAR(order_date) = '$year'";
+        }
+        elseif($filter_type == "custom"){
+            $from = $_POST["from_date"];
+            $to = $_POST["to_date"];
+            // Include entire first and last day
+            $criteria = "WHERE order_date >= '$from 00:00:00' AND order_date <= '$to 23:59:59'";
+        }
+    }
+
+    // Fetch filtered data
+    $orders = Order::filter($criteria);
+
+    // Send data to view
+    view("Inventory", ["orders" => $orders]);
+}
+
+
 }
 ?>

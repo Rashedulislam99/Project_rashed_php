@@ -31,7 +31,7 @@ $stocks = Stock::getLowStockProducts(10);
                         <?php if (!empty($stocks)) : ?>
                             <?php foreach ($stocks as $value) : ?>
                                 <tr>
-                                    <td class="text-center"><?= $value->id ?></td>
+                                    <td class="text-center"><?= $value->product_id ?></td>
                                     <td><?= htmlspecialchars($value->product) ?></td>
                                     <td class="text-center">
                                         <?php 

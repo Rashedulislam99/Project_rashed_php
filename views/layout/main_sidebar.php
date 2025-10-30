@@ -2,7 +2,7 @@
   <div class="navbar-wrapper">
     <div class="m-header">
       <div class="auth-header">
-          <a href="#"><img src="assets/images/logo-dark.svg" alt="img"></a>
+          <a href="#"><img src="<?=$base_url?>/assets/images/logo-dark.svg" alt="img"></a>
         </div>
     </div>
     <div class="navbar-content">

@@ -57,6 +57,28 @@ class Order extends Model implements JsonSerializable{
 		}
 			return $data;
 	}
+
+
+	//public static function filter
+public static function filter($criteria=""){
+    global $db, $tx;
+    $sql = "SELECT {$tx}orders.id, c.name customer_name, order_date, delivery_date, shipping_address, order_total, paid_amount, remark, status_id, discount, vat
+            FROM {$tx}orders
+            JOIN {$tx}customers c ON c.id = {$tx}orders.customer_id
+            $criteria
+            ORDER BY order_date DESC";
+
+    $result = $db->query($sql);
+    $data = [];
+    while($order = $result->fetch_object()){
+        $data[] = $order;
+    }
+    return $data;
+}
+
+
+
+
 	public static function pagination($page=1,$perpage=10,$criteria=""){
 		global $db,$tx;
 		$top=($page-1)*$perpage;
