@@ -380,6 +380,8 @@ if(isset($_GET["class"])){
      
     if(isset($path)){        
         include_once("views/pages/$path/$class/$method.php");
+        include_once("views/pages/$path/$class/$method.php");
+        
 //                $file = "views/pages/$path/$class/$method.php";
 // if(file_exists($file)){
 //     include_once($file);
