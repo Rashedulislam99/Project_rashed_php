@@ -1,60 +1,146 @@
+
+
+
 <style>
-  /* Small visual tweaks */
   body {
-    background: #f6f8fb;
-    color: #212529;
+    background: linear-gradient(135deg, #f9f9ff, #e9f3ff);
+    font-family: "Poppins", sans-serif;
+    color: #222;
     padding: 2rem;
   }
 
   .invoice {
-    background: #fff;
+    background: #ffffff;
+    border-radius: 1rem;
     padding: 2rem;
-    border-radius: .5rem;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    border: 2px solid #edf1f7;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: #0077b6;
+    border-bottom: 3px solid #00b4d8;
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  .form-control,
+  .form-select {
+    border: 1px solid #cbd5e1;
+    border-radius: 0.6rem;
+    background: #f8fafc;
+    transition: 0.2s;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #00b4d8;
+    background: #ffffff;
+  }
+
+  .table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .table thead {
+    background: linear-gradient(90deg, #00b4d8, #48cae4);
+    color: white;
   }
 
   .table thead th {
-    border-bottom: 2px solid #e9ecef;
+    border: none;
+    font-weight: 500;
   }
 
-  .no-break {
-    page-break-inside: avoid;
+  .table tbody tr:nth-child(odd) {
+    background: #f1f9ff;
   }
 
-  /* Print styles: hide controls that are not part of invoice */
+  .table tbody tr:nth-child(even) {
+    background: #ffffff;
+  }
+
+  .table tbody tr:hover {
+    background: #caf0f8;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 0.6rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: 0.3s;
+  }
+
+  .btn-success {
+    background: linear-gradient(90deg, #38b000, #70e000);
+    color: white;
+  }
+
+  .btn-success:hover {
+    background: linear-gradient(90deg, #2d9f00, #57d100);
+  }
+
+  .btn-outline-success {
+    border: 2px solid #38b000;
+    color: #38b000;
+    background: transparent;
+  }
+
+  .btn-outline-success:hover {
+    background: #38b000;
+    color: white;
+  }
+
+  .btn-outline-danger {
+    border: 2px solid #e63946;
+    color: #e63946;
+    background: transparent;
+  }
+
+  .btn-outline-danger:hover {
+    background: #e63946;
+    color: white;
+  }
+
+  #grandTotal {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #007f5f;
+  }
+
+  textarea {
+    border-radius: 0.6rem;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+  }
+
+  textarea:focus {
+    border-color: #00b4d8;
+    background: #ffffff;
+  }
+
+  /* Print style */
   @media print {
+    .no-print {
+      display: none !important;
+    }
     body {
       background: #fff;
       padding: 0;
     }
-
-    .no-print {
-      display: none !important;
-    }
-
     .invoice {
-      box-shadow: none;
       border: none;
-      margin: 0;
       border-radius: 0;
     }
   }
-
-  /* Make small inputs look nicer in table */
-  .table input[type="number"],
-  .table input[type="text"] {
-    width: 100%;
-    min-width: 0;
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    padding: 0.25rem 0;
-  }
-
-  .table input:focus {
-    outline: none;
-  }
 </style>
+
+
+
+
+
 </head>
 
 <body>
