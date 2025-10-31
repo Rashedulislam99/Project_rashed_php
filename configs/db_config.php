@@ -10,7 +10,7 @@
    
     define("SERVER","localhost");
     define("USER","root");//rajib
-    define("DATABASE","batch66");
+    define("DATABASE","wdpfsms");
     define("PASSWORD","");
 
     $db=new mysqli(SERVER,USER,PASSWORD,DATABASE);

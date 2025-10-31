@@ -6,7 +6,7 @@
     </a>
 
     <ul class="pc-submenu">
-        <li class="pc-item"><a class="pc-link" href="<?=$base_url?>/product/add_customers">Add Customer</a></li>
+        <li class="pc-item"><a class="pc-link" href="<?=$base_url?>/customer/create">Add Customer</a></li>
         <!-- <li class="pc-item pc-hasmenu">
             <a href="#!" class="pc-link">All Customers<span class="pc-arrow"></a>
         </li> -->

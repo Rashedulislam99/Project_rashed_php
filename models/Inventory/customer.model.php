@@ -119,12 +119,32 @@ class Customer extends Model implements JsonSerializable{
 		while($customer=$result->fetch_object()){
 			$action_buttons = "";
 			if($action){
-				$action_buttons = "<td><div class='btn-group' style='display:flex;'>";
-				$action_buttons.= Event::button(["name"=>"show", "value"=>"Show", "class"=>"btn btn-info", "route"=>"customer/show/$customer->id"]);
-				$action_buttons.= Event::button(["name"=>"edit", "value"=>"Edit", "class"=>"btn btn-primary", "route"=>"customer/edit/$customer->id"]);
-				$action_buttons.= Event::button(["name"=>"delete", "value"=>"Delete", "class"=>"btn btn-danger", "route"=>"customer/confirm/$customer->id"]);
-				$action_buttons.= "</div></td>";
-			}
+    $action_buttons = "
+    <td>
+      <div class='d-flex justify-content-center gap-2'>
+        " . Event::button([
+          "name" => "show",
+          "value" => "<i class='bi bi-eye'></i>",
+          "class" => "btn btn-outline-info btn-sm rounded-circle",
+          "route" => "product/show/$customer->id"
+        ]) . "
+        " . Event::button([
+          "name" => "edit",
+          "value" => "<i class='bi bi-pencil-square'></i>",
+          "class" => "btn btn-outline-primary btn-sm rounded-circle",
+          "route" => "product/edit/$customer->id"
+        ]) . "
+        " . Event::button([
+          "name" => "delete",
+          "value" => "<i class='bi bi-trash'></i>",
+          "class" => "btn btn-outline-danger btn-sm rounded-circle",
+          "route" => "product/confirm/$customer->id"
+        ]) . "
+      </div>
+    </td>
+    ";
+}
+
 			$html.="<tr><td>$customer->id</td><td>$customer->name</td><td>$customer->email</td><td>$customer->phone</td><td>$customer->address</td><td>$customer->created_at</td><td>$customer->updated_at</td><td>$customer->password</td> $action_buttons</tr>";
 		}
 		$html.="</table>";

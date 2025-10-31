@@ -97,11 +97,12 @@ public static function filter($criteria=""){
 	}
 
 public static function total_sell(){
-		global $db,$tx;
-		$result =$db->query("select sum(order_total) total_sell from {$tx}orders ");
-		list($count)=$result->fetch_row();
-			return $count;
-	}
+    global $db, $tx;
+    $result = $db->query("SELECT SUM(order_total) AS total_sell FROM {$tx}orders");
+    list($count) = $result->fetch_row();
+    return $count;
+}
+
 
 	public static function find($id){
 		global $db,$tx;
