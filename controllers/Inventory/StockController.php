@@ -12,6 +12,17 @@ class StockController extends Controller{
 	public function lowStock(){
 		view("Inventory");
 	}
+	
+    public function overStock() {
+        view("Inventory"); 
+    }
+
+
+
+	
+
+	
+
 public function save($data,$file){
 	if(isset($data["create"])){
 	$errors=[];

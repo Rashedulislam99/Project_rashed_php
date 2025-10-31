@@ -148,6 +148,36 @@ ORDER BY updated_at DESC
 
 
 
+//getOverStockProducts
+
+public static function getOverStockProducts($threshold = 20)
+{
+    global $db, $tx;
+
+    $sql = "SELECT 
+                p.id AS product_id,
+                p.name AS product,
+                SUM(s.qty) AS quantity,
+                MAX(s.updated_at) AS last_updated
+            FROM {$tx}stocks s
+            INNER JOIN {$tx}products p ON s.product_id = p.id
+            GROUP BY p.id, p.name
+            HAVING SUM(s.qty) > {$threshold}
+            ORDER BY quantity DESC";
+
+    $result = $db->query($sql);
+
+    if (!$result) {
+        die('Query Error: ' . $db->error);
+    }
+
+    $data = [];
+    while ($row = $result->fetch_object()) {
+        $data[] = $row;
+    }
+
+    return $data;
+}
 
 
 
