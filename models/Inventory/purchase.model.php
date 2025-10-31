@@ -35,7 +35,7 @@ class Purchase extends Model implements JsonSerializable{
 		global $db,$tx;
 		$db->query("delete from {$tx}purchases where id={$id}");
 	}
-	public function jsonSerialize(){
+	public function jsonSerialize():mixed{
 		return get_object_vars($this);
 	}
 	public static function all(){
@@ -109,22 +109,36 @@ class Purchase extends Model implements JsonSerializable{
 		$total_pages = ceil($total_rows /$perpage);
 		$top = ($page - 1)*$perpage;
 		$result=$db->query("select id,supplier_id,sub_total,discount_amount,net_total,status_id,created_at,updated_at from {$tx}purchases $criteria limit $top,$perpage");
-		$html="<table class='table'>";
+		$html="<table class='table table-striped'>";
 			$html.="<tr><th colspan='3'>".Html::link(["class"=>"btn btn-success","route"=>"purchase/create","text"=>"New Purchase"])."</th></tr>";
 		if($action){
-			$html.="<tr><th>Id</th><th>Supplier Id</th><th>Sub Total</th><th>Discount Amount</th><th>Net Total</th><th>Status Id</th><th>Created At</th><th>Updated At</th><th>Action</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Supplier Id</th><th>Sub Total</th><th>Discount Amount</th><th>Net Total</th><th>Status Id</th><th>Created At</th><th>Updated At</th><th>Action</th></tr>";
 		}else{
-			$html.="<tr><th>Id</th><th>Supplier Id</th><th>Sub Total</th><th>Discount Amount</th><th>Net Total</th><th>Status Id</th><th>Created At</th><th>Updated At</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Supplier Id</th><th>Sub Total</th><th>Discount Amount</th><th>Net Total</th><th>Status Id</th><th>Created At</th><th>Updated At</th></tr>";
 		}
 		while($purchase=$result->fetch_object()){
 			$action_buttons = "";
 			if($action){
-				$action_buttons = "<td><div class='btn-group' style='display:flex;'>";
-				$action_buttons.= Event::button(["name"=>"show", "value"=>"Show", "class"=>"btn btn-info", "route"=>"purchase/show/$purchase->id"]);
-			
-				$action_buttons.= Event::button(["name"=>"delete", "value"=>"Delete", "class"=>"btn btn-danger", "route"=>"purchase/confirm/$purchase->id"]);
-				$action_buttons.= "</div></td>";
-			}
+    $action_buttons = "
+    <td>
+      <div class='d-flex justify-content-center gap-2'>
+        " . Event::button([
+          "name" => "show",
+          "value" => "<i class='bi bi-eye'></i>",
+          "class" => "btn btn-outline-info btn-sm rounded-circle",
+          "route" => "purchase/show/$purchase->id"
+        ]) . "
+        " . Event::button([
+          "name" => "delete",
+          "value" => "<i class='bi bi-trash'></i>",
+          "class" => "btn btn-outline-danger btn-sm rounded-circle",
+          "route" => "purchase/confirm/$purchase->id"
+        ]) . "
+      </div>
+    </td>
+    ";
+}
+
 			$html.="<tr><td>$purchase->id</td><td>$purchase->supplier_id</td><td>$purchase->sub_total</td><td>$purchase->discount_amount</td><td>$purchase->net_total</td><td>$purchase->status_id</td><td>$purchase->created_at</td><td>$purchase->updated_at</td> $action_buttons</tr>";
 		}
 		$html.="</table>";

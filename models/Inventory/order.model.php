@@ -154,21 +154,36 @@ public static function total_sell(){
 		$total_pages = ceil($total_rows /$perpage);
 		$top = ($page - 1)*$perpage;
 		$result=$db->query("select {$tx}orders.id,c.name customer_name,order_date,delivery_date,shipping_address,order_total,paid_amount,remark,status_id,discount,vat from {$tx}orders,{$tx}customers c where c.id={$tx}orders.customer_id $criteria limit $top,$perpage");
-		$html="<table class='table'>";
+		$html="<table class='table table-striped'>";
 			$html.="<tr><th colspan='3'>".Html::link(["class"=>"btn btn-success","route"=>"order/create","text"=>"New Order"])."</th></tr>";
 		if($action){
-			$html.="<tr><th>Id</th><th>Customer </th><th>Order Date</th><th>Delivery Date</th><th>Shipping Address</th><th>Order Total</th><th>Paid Amount</th><th>Remark</th><th>Action</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Customer </th><th>Order Date</th><th>Delivery Date</th><th>Shipping Address</th><th>Order Total</th><th>Paid Amount</th><th>Remark</th><th>Action</th></tr>";
 		}else{
-			$html.="<tr><th>Id</th><th>Customer </th><th>Order Date</th><th>Delivery Date</th><th>Shipping Address</th><th>Order Total</th><th>Paid Amount</th><th>Remark</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Customer </th><th>Order Date</th><th>Delivery Date</th><th>Shipping Address</th><th>Order Total</th><th>Paid Amount</th><th>Remark</th></tr>";
 		}
 		while($order=$result->fetch_object()){
 			$action_buttons = "";
 			if($action){
-				$action_buttons = "<td><div class='btn-group' style='display:flex;'>";
-				$action_buttons.= Event::button(["name"=>"show", "value"=>"Show", "class"=>"btn btn-info", "route"=>"order/show/$order->id"]);
-				$action_buttons.= Event::button(["name"=>"delete", "value"=>"Delete", "class"=>"btn btn-danger", "route"=>"order/confirm/$order->id"]);
-				$action_buttons.= "</div></td>";
-			}
+    $action_buttons = "
+    <td>
+      <div class='d-flex justify-content-center gap-2'>
+        " . Event::button([
+          "name" => "show",
+          "value" => "<i class='bi bi-eye'></i>",
+          "class" => "btn btn-outline-info btn-sm rounded-circle",
+          "route" => "order/show/$order->id"
+        ]) . "
+        " . Event::button([
+          "name" => "delete",
+          "value" => "<i class='bi bi-trash'></i>",
+          "class" => "btn btn-outline-danger btn-sm rounded-circle",
+          "route" => "order/confirm/$order->id"
+        ]) . "
+      </div>
+    </td>
+    ";
+}
+
 			$html.="<tr><td>$order->id</td><td>$order->customer_name</td><td>$order->order_date</td><td>$order->delivery_date</td><td>$order->shipping_address</td><td>$order->order_total</td><td>$order->paid_amount</td><td>$order->remark</td> $action_buttons</tr>";
 		}
 		$html.="</table>";

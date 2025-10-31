@@ -106,22 +106,42 @@ class Warehouse extends Model implements JsonSerializable{
 		$total_pages = ceil($total_rows /$perpage);
 		$top = ($page - 1)*$perpage;
 		$result=$db->query("select id,name,address,phone,email,created_at,updated_at from {$tx}warehouses $criteria limit $top,$perpage");
-		$html="<table class='table'>";
+		$html="<table class='table table-striped'>";
 			$html.="<tr><th colspan='3'>".Html::link(["class"=>"btn btn-success","route"=>"warehouse/create","text"=>"New Warehouse"])."</th></tr>";
 		if($action){
-			$html.="<tr><th>Id</th><th>Name</th><th>Address</th><th>Phone</th><th>Email</th><th>Created At</th><th>Updated At</th><th>Action</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Name</th><th>Address</th><th>Phone</th><th>Email</th><th>Created At</th><th>Updated At</th><th>Action</th></tr>";
 		}else{
-			$html.="<tr><th>Id</th><th>Name</th><th>Address</th><th>Phone</th><th>Email</th><th>Created At</th><th>Updated At</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Name</th><th>Address</th><th>Phone</th><th>Email</th><th>Created At</th><th>Updated At</th></tr>";
 		}
 		while($warehouse=$result->fetch_object()){
 			$action_buttons = "";
 			if($action){
-				$action_buttons = "<td><div class='btn-group' style='display:flex;'>";
-				$action_buttons.= Event::button(["name"=>"show", "value"=>"Show", "class"=>"btn btn-info", "route"=>"warehouse/show/$warehouse->id"]);
-				$action_buttons.= Event::button(["name"=>"edit", "value"=>"Edit", "class"=>"btn btn-primary", "route"=>"warehouse/edit/$warehouse->id"]);
-				$action_buttons.= Event::button(["name"=>"delete", "value"=>"Delete", "class"=>"btn btn-danger", "route"=>"warehouse/confirm/$warehouse->id"]);
-				$action_buttons.= "</div></td>";
-			}
+    $action_buttons = "
+    <td>
+      <div class='d-flex justify-content-center gap-2'>
+        " . Event::button([
+          "name" => "show",
+          "value" => "<i class='bi bi-eye'></i>",
+          "class" => "btn btn-outline-info btn-sm rounded-circle",
+          "route" => "warehouse/show/$warehouse->id"
+        ]) . "
+        " . Event::button([
+          "name" => "edit",
+          "value" => "<i class='bi bi-pencil-square'></i>",
+          "class" => "btn btn-outline-primary btn-sm rounded-circle",
+          "route" => "warehouse/edit/$warehouse->id"
+        ]) . "
+        " . Event::button([
+          "name" => "delete",
+          "value" => "<i class='bi bi-trash'></i>",
+          "class" => "btn btn-outline-danger btn-sm rounded-circle",
+          "route" => "warehouse/confirm/$warehouse->id"
+        ]) . "
+      </div>
+    </td>
+    ";
+}
+
 			$html.="<tr><td>$warehouse->id</td><td>$warehouse->name</td><td>$warehouse->address</td><td>$warehouse->phone</td><td>$warehouse->email</td><td>$warehouse->created_at</td><td>$warehouse->updated_at</td> $action_buttons</tr>";
 		}
 		$html.="</table>";

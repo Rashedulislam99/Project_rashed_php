@@ -119,22 +119,43 @@ class Product extends Model implements JsonSerializable{
 		$total_pages = ceil($total_rows /$perpage);
 		$top = ($page - 1)*$perpage;
 		$result=$db->query("select id,name,category,uom_id,description,brand,price,purchase_price,image,created_at,updated_at from {$tx}products $criteria limit $top,$perpage");
-		$html="<table class='table'>";
+		$html="<table class='table table-striped'>";
 			$html.="<tr><th colspan='3'>".Html::link(["class"=>"btn btn-success","route"=>"product/create","text"=>"New Product"])."</th></tr>";
 		if($action){
-			$html.="<tr><th>Id</th><th>Name</th><th>Category</th><th>Uom Id</th><th>Description</th><th>Brand</th><th>Price</th><th>Purchase Price</th><th>Image</th><th>Created At</th><th>Updated At</th><th>Action</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Name</th><th>Category</th><th>Uom Id</th><th>Description</th><th>Brand</th><th>Price</th><th>Purchase Price</th><th>Image</th><th>Created At</th><th>Updated At</th><th>Action</th></tr>";
 		}else{
-			$html.="<tr><th>Id</th><th>Name</th><th>Category</th><th>Uom Id</th><th>Description</th><th>Brand</th><th>Price</th><th>Purchase Price</th><th>Image</th><th>Created At</th><th>Updated At</th></tr>";
+			$html.="<tr class=\"table-primary\"><th>Id</th><th>Name</th><th>Category</th><th>Uom Id</th><th>Description</th><th>Brand</th><th>Price</th><th>Purchase Price</th><th>Image</th><th>Created At</th><th>Updated At</th></tr>";
 		}
 		while($product=$result->fetch_object()){
 			$action_buttons = "";
 			if($action){
-				$action_buttons = "<td><div class='btn-group' style='display:flex;'>";
-				$action_buttons.= Event::button(["name"=>"show", "value"=>"Show", "class"=>"btn btn-info", "route"=>"product/show/$product->id"]);
-				$action_buttons.= Event::button(["name"=>"edit", "value"=>"Edit", "class"=>"btn btn-primary", "route"=>"product/edit/$product->id"]);
-				$action_buttons.= Event::button(["name"=>"delete", "value"=>"Delete", "class"=>"btn btn-danger", "route"=>"product/confirm/$product->id"]);
-				$action_buttons.= "</div></td>";
-			}
+    $action_buttons = "
+    <td>
+      <div class='d-flex justify-content-center gap-2'>
+        " . Event::button([
+          "name" => "show",
+          "value" => "<i class='bi bi-eye'></i>",
+          "class" => "btn btn-outline-info btn-sm rounded-circle",
+          "route" => "product/show/$product->id"
+        ]) . "
+        " . Event::button([
+          "name" => "edit",
+          "value" => "<i class='bi bi-pencil-square'></i>",
+          "class" => "btn btn-outline-primary btn-sm rounded-circle",
+          "route" => "product/edit/$product->id"
+        ]) . "
+        " . Event::button([
+          "name" => "delete",
+          "value" => "<i class='bi bi-trash'></i>",
+          "class" => "btn btn-outline-danger btn-sm rounded-circle",
+          "route" => "product/confirm/$product->id"
+        ]) . "
+      </div>
+    </td>
+    ";
+}
+
+
 			$html.="<tr><td>$product->id</td><td>$product->name</td><td>$product->category</td><td>$product->uom_id</td><td>$product->description</td><td>$product->brand</td><td>$product->price</td><td>$product->purchase_price</td><td>$product->image</td><td>$product->created_at</td><td>$product->updated_at</td> $action_buttons</tr>";
 		}
 		$html.="</table>";
